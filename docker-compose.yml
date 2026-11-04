@@ -1,0 +1,26 @@
+services:
+  ipmi-tn03:
+    build:
+      context: .
+      # args:
+      #   IPMIVIEW_URL: "https://www.supermicro.com/wdl/utility/IPMIView/Linux/<arquivo>.tar.gz"
+    image: ipmi-tn03:latest
+    container_name: ipmi-tn03
+    hostname: ipmi-tn03
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "5901:5901"     # VNC (cliente VNC)
+      - "6080:6080"     # noVNC (http://host:6080/vnc.html)
+    cap_add:
+      - NET_ADMIN       # necessario para o ZeroTier criar a interface
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    shm_size: "1gb"     # evita travamentos do Firefox
+    volumes:
+      - zerotier:/var/lib/zerotier-one   # mantem o node ID do ZeroTier
+      - home:/home/ipmi                  # perfil Firefox, IPMIView, cache Java
+
+volumes:
+  zerotier:
+  home:

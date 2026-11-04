@@ -1,0 +1,40 @@
+{
+  "policies": {
+    "DisableAppUpdate": true,
+    "DisableTelemetry": true,
+    "DisableFirefoxStudies": true,
+    "DontCheckDefaultBrowser": true,
+    "OverrideFirstRunPage": "",
+    "Homepage": {
+      "URL": "about:blank",
+      "StartPage": "homepage"
+    },
+    "Handlers": {
+      "mimeTypes": {
+        "application/x-java-jnlp-file": {
+          "action": "useHelperApp",
+          "ask": false,
+          "handlers": [{ "name": "IcedTea-Web (Java 8)", "path": "/usr/local/bin/jnlp-open.sh" }]
+        }
+      },
+      "extensions": {
+        "jnlp": {
+          "action": "useHelperApp",
+          "ask": false,
+          "handlers": [{ "name": "IcedTea-Web (Java 8)", "path": "/usr/local/bin/jnlp-open.sh" }]
+        }
+      }
+    },
+    "Preferences": {
+      "security.tls.version.min": { "Value": 1, "Status": "locked" },
+      "security.tls.version.enable-deprecated": { "Value": true, "Status": "locked" },
+      "security.ssl3.rsa_des_ede3_sha": { "Value": true, "Status": "locked" },
+      "security.ssl.require_safe_negotiation": { "Value": false, "Status": "locked" },
+      "security.ssl.treat_unsafe_negotiation_as_broken": { "Value": false, "Status": "locked" },
+      "security.mixed_content.block_active_content": { "Value": false, "Status": "default" },
+      "dom.security.https_only_mode": { "Value": false, "Status": "locked" },
+      "browser.download.useDownloadDir": { "Value": true, "Status": "default" },
+      "browser.download.always_ask_before_handling_new_types": { "Value": false, "Status": "default" }
+    }
+  }
+}

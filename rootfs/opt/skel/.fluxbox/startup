@@ -1,0 +1,4 @@
+#!/bin/sh
+xsetroot -solid "#2b3a4a" 2>/dev/null
+firefox-esr &
+exec fluxbox

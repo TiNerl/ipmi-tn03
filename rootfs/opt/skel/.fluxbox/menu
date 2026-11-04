@@ -1,0 +1,10 @@
+[begin] (TN03)
+  [exec] (Firefox - Painel IPMI) {firefox-esr}
+  [exec] (IPMIView) {/usr/local/bin/ipmiview.sh}
+  [exec] (Terminal) {xterm -fa Monospace -fs 11}
+  [exec] (ZeroTier - status) {xterm -hold -e 'zerotier-cli info; zerotier-cli listnetworks'}
+  [separator]
+  [exec] (Configurações IcedTea-Web) {itweb-settings}
+  [separator]
+  [restart] (Reiniciar Fluxbox)
+[end]
